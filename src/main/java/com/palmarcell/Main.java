@@ -2,6 +2,7 @@ package com.palmarcell;
 
 import com.palmarcell.utility.Manager;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,6 +20,11 @@ public class Main extends Application {
         primaryStage.setTitle("Password Generator");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+        primaryStage.setOnCloseRequest(e -> {
+                                    Platform.exit();
+                                    System.exit(0);
+        });
     }
 
     @Override
